@@ -7,10 +7,13 @@ import { authMiddleware } from "./middleware/auth.js";
 const app = express();
 
 app.get("/", (req, res) => {
-  res.json({
-    message:
-      "Hello World, this is the public Nilho API (nilho.co), check the docs at https://github.com/tomasCalletce/cuponhub-public-api",
-  });
+  res.send(`
+    <html>
+      <body>
+        <p>CuponHub Public API - Check the docs at <a href="https://github.com/tomasCalletce/cuponhub-public-api">GitHub</a></p>
+      </body>
+    </html>
+  `);
 });
 
 app.get("/entries", authMiddleware, getEntries);
