@@ -1,14 +1,22 @@
-import express from 'express'
+import "dotenv/config";
+import express from "express";
 
-const app = express()
+import { getEntries } from "./routes/entries.js";
+import { authMiddleware } from "./middleware/auth.js";
+
+const app = express();
 
 const welcomeStrings = [
-  "Hello Express!",
-  "To learn more about Express on Vercel, visit https://vercel.com/docs/frameworks/backend/express",
-]
+  "Hello World!",
+  "This is the public Nilho API (nilho.co)",
+];
 
-app.get('/', (_req, res) => {
-  res.send(welcomeStrings.join('\n\n'))
-})
+app.get("/entries", authMiddleware, getEntries);
 
-export default app
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
+
+export default app;
