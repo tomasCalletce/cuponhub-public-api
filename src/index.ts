@@ -6,10 +6,12 @@ import { authMiddleware } from "./middleware/auth.js";
 
 const app = express();
 
-const welcomeStrings = [
-  "Hello World!",
-  "This is the public Nilho API (nilho.co)",
-];
+app.get("/", (req, res) => {
+  res.json({
+    message:
+      "Hello World, this is the public Nilho API (nilho.co), check the docs at https://github.com/tomasCalletce/cuponhub-public-api",
+  });
+});
 
 app.get("/entries", authMiddleware, getEntries);
 
