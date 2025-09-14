@@ -30,7 +30,7 @@ Get coupons and offers for a specific country.
 **Example:**
 ```bash
 curl -H "Authorization: Bearer YOUR_TOKEN" \
-  "https://api.cuponhub.com/entries?limit=10&geo=mx"
+  "https://cuponhub-public-api.vercel.app/entries?limit=10&geo=mx"
 ```
 
 **Response:**
